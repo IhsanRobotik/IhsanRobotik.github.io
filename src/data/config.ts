@@ -102,8 +102,8 @@ export const skills: Skill[] = [
 ];
 
 export const nav = [
-  { label: "Work", href: "#projects" },
-  { label: "Skills", href: "#skills" },
   { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];

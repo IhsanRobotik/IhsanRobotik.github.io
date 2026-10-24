@@ -1,37 +1,59 @@
-import { Moon, Sun } from "lucide-react";
-import { useTheme } from "@/hooks/useTheme";
+import { useEffect, useState } from "react";
 import { nav, site } from "@/data/config";
 
 export default function Navbar() {
-  const { theme, toggle } = useTheme();
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(total > 0 ? (window.scrollY / total) * 100 : 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-md bg-background/75 border-b border-border">
-      {/* 🌈 Garis pelangi paling atas */}
-      <div className="rainbow-bg h-1.5 w-full" aria-hidden="true" />
-      <div className="container-mono flex h-16 items-center justify-between">
-        <a href="#top" className="font-display font-semibold tracking-tight text-base">
-          {site.name.split(" ")[0]}
-          <span className="rainbow-text font-bold">.</span>
+    <>
+      {/* Progress bar pelangi (di template aslinya: garis biru 2px) */}
+      <div className="fixed left-0 right-0 top-0 h-[3px] z-[2000]" aria-hidden="true">
+        <span className="rainbow-bg block h-full" style={{ width: `${progress}%` }} />
+      </div>
+
+      <header className="fixed top-[3px] left-0 right-0 z-[1000] h-[72px] flex items-center gap-[30px] px-[clamp(22px,4vw,70px)] border-b border-white/10 bg-[#0b0d10]/85 backdrop-blur-[14px]">
+        <a href="#home" className="flex items-center gap-2.5 font-black" aria-label="Back to top">
+          <span className="rainbow-text text-xl tracking-[-5px]">///</span>
+          <span className="text-[22px] tracking-[0.03em]">Portfolio.</span>
         </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
+
+        <nav className="ml-auto hidden md:flex items-center gap-[26px]">
           {nav.map((item, i) => (
             <a
               key={item.href}
               href={item.href}
-              className={`rb-${i % 7} rb-hover font-medium transition-colors`}
+              className={`rb-${i % 7} rb-hover relative text-[11px] uppercase tracking-[0.18em] text-[#b9c0c8] transition-colors after:absolute after:left-0 after:bottom-[-7px] after:h-[2px] after:w-0 after:bg-[var(--rb)] after:transition-all hover:after:w-full`}
             >
               {item.label}
             </a>
           ))}
+          <a
+            href={site.cvUrl}
+            download
+            className="rainbow-border rounded-full px-3 py-2 text-[11px] uppercase tracking-[0.18em] font-semibold"
+          >
+            CV ↓
+          </a>
         </nav>
-        <button
-          onClick={toggle}
-          aria-label="Toggle theme"
-          className="rainbow-border h-9 w-9 inline-flex items-center justify-center rounded-md hover:scale-105 transition-transform"
+
+        <a
+          href={site.cvUrl}
+          download
+          className="ml-auto md:ml-0 text-[10px] tracking-[0.14em] border border-white/[0.13] px-3 py-2.5 rounded-full hover:border-rainbow-violet hover:text-rainbow-violet transition-colors"
         >
-          {theme === "dark" ? <Sun className="h-4 w-4 text-rainbow-yellow" /> : <Moon className="h-4 w-4 text-rainbow-indigo" />}
-        </button>
-      </div>
-    </header>
+          RESUME ↗
+        </a>
+      </header>
+    </>
   );
 }

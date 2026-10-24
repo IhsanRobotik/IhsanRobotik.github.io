@@ -13,7 +13,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ["'Space Grotesk'", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["Impact", "Haettenschweiler", "'Arial Narrow Bold'", "'Arial Narrow'", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

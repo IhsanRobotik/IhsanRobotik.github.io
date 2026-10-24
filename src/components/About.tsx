@@ -13,11 +13,11 @@ export default function About() {
         </div>
         <dl className="reveal space-y-4 text-sm">
           <div>
-            <dt className="text-muted-foreground">Location</dt>
+            <dt className="rb-0 rb-text font-semibold">Location</dt>
             <dd className="font-medium">{site.location}</dd>
           </div>
           <div>
-            <dt className="text-muted-foreground">Email</dt>
+            <dt className="rb-4 rb-text font-semibold">Email</dt>
             <dd className="font-medium">
               <a
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=ihsanfadilah980@gmail.com"
@@ -30,7 +30,7 @@ export default function About() {
             </dd>
           </div>
           <div>
-            <dt className="text-muted-foreground">Status</dt>
+            <dt className="rb-3 rb-text font-semibold">Status</dt>
             <dd className="font-medium">Open to opportunities</dd>
           </div>
         </dl>

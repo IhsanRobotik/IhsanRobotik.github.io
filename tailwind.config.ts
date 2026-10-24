@@ -49,6 +49,22 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        /* 🌈 Semua warna pelangi sebagai warna Tailwind: bg-rainbow-red, text-rainbow-blue, dst. */
+        rainbow: {
+          red: "#FF3838",
+          orange: "#FF8A00",
+          yellow: "#FFD60A",
+          green: "#00C853",
+          blue: "#0091FF",
+          indigo: "#5E5CE6",
+          violet: "#BF5AF2",
+        },
+      },
+      backgroundImage: {
+        rainbow:
+          "linear-gradient(90deg,#FF3838 0%,#FF8A00 16.6%,#FFD60A 33.3%,#00C853 50%,#0091FF 66.6%,#5E5CE6 83.3%,#BF5AF2 100%)",
+        "rainbow-conic":
+          "conic-gradient(from 180deg,#FF3838,#FF8A00,#FFD60A,#00C853,#0091FF,#5E5CE6,#BF5AF2,#FF3838)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -60,9 +76,14 @@ export default {
           "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "rainbow-pan": {
+          "0%": { backgroundPosition: "0% 50%" },
+          "100%": { backgroundPosition: "300% 50%" },
+        },
       },
       animation: {
         "fade-in": "fade-in 0.6s ease-out",
+        "rainbow-pan": "rainbow-pan 8s linear infinite",
       },
     },
   },

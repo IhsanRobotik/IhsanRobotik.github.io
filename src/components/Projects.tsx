@@ -11,10 +11,10 @@ export default function Projects() {
         description="Recent Works LMAO."
       />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((p) => (
+        {projects.map((p, i) => (
           <article
             key={p.title}
-            className="reveal flex flex-col rounded-lg border border-border bg-card overflow-hidden"
+            className={`reveal rb-${i % 7} rb-card flex flex-col rounded-xl border border-border bg-card overflow-hidden`}
           >
             <div className="relative aspect-[16/10] overflow-hidden bg-muted">
               {p.video ? (
@@ -43,7 +43,7 @@ export default function Projects() {
                 )
               ) : (
                 <div className="flex h-full flex-col items-center justify-center gap-2 text-muted-foreground">
-                  <Play className="h-8 w-8" />
+                  <Play className="rb-text h-8 w-8" />
                   <span className="text-xs">Add a project video</span>
                 </div>
               )}
@@ -54,10 +54,10 @@ export default function Projects() {
                 {p.description}
               </p>
               <div className="flex flex-wrap gap-1.5 mb-4">
-                {p.tags.map((t) => (
+                {p.tags.map((t, j) => (
                   <span
                     key={t}
-                    className="text-[11px] px-2 py-0.5 rounded-full border border-border text-muted-foreground"
+                    className={`rb-${(i + j) % 7} rb-text rb-bg-soft text-[11px] px-2 py-0.5 rounded-full border rb-border font-medium`}
                   >
                     {t}
                   </span>
@@ -68,7 +68,7 @@ export default function Projects() {
                   const Icon = type === "video" ? Play : type === "design" ? Ruler : type === "docs" ? BookOpen : type === "code" ? Code2 : ExternalLink;
                   return (
                     <a key={label} href={href} target="_blank" rel="noreferrer noopener"
-                      className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground">
+                      className="rb-text inline-flex items-center gap-1.5 font-medium transition-opacity hover:opacity-70">
                       <Icon className="h-3.5 w-3.5" /> {label}
                       <ArrowUpRight className="h-3 w-3 opacity-60" />
                     </a>

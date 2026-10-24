@@ -11,7 +11,7 @@ export default function Contact() {
         description="Have a project in mind or just want to chat? I'd love to hear from you."
       />
 
-      <div className="reveal mt-8 max-w-xl rounded-2xl border border-border bg-card p-6 shadow-sm">
+      <div className="reveal rainbow-border mt-8 max-w-xl rounded-2xl bg-card p-6 shadow-lg">
         <p className="text-sm text-muted-foreground">
           Reach out directly and I’ll get back to you as soon as possible.
         </p>
@@ -31,7 +31,7 @@ export default function Contact() {
             href="https://mail.google.com/mail/?view=cm&fs=1&to=ihsanfadilah980@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center h-11 px-5 rounded-md bg-foreground text-background text-sm font-medium hover:opacity-90 transition-opacity"
+            className="rainbow-bg inline-flex items-center justify-center h-11 px-5 rounded-full text-white text-sm font-semibold hover:scale-[1.03] transition-transform"
           >
             Gmail
           </a>

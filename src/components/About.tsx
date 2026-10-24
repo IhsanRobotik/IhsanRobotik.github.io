@@ -3,7 +3,7 @@ import SectionHeading from "./SectionHeading";
 
 export default function About() {
   return (
-    <section id="about" className="panel rb-1">
+    <section id="about" className="panel">
       <SectionHeading eyebrow="Bio" title="About Me" />
       <div className="grid md:grid-cols-3 gap-10">
         <div className="reveal md:col-span-2 space-y-5 leading-relaxed">

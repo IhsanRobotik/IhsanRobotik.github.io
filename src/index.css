@@ -5,20 +5,10 @@
 /*
   Template: algazcompany.com (Muhammad Al-Ghazali) — diterapkan ke portofolio Ihsan.
   Panel layar-penuh gelap #0b0d10, judul display raksasa uppercase (Impact),
-  kicker kecil letterspaced, garis tipis, nomor section "01 / 05",
-  aksen biru khas template diganti aksen PELANGI per panel 🌈 + bendera Pride 🏳️‍🌈.
+  kicker kecil letterspaced, garis tipis, nomor section "01 / 05", aksen biru #6bb9ff.
 */
 @layer base {
   :root {
-    --rainbow-red: 0 100% 61%;
-    --rainbow-orange: 32 100% 50%;
-    --rainbow-yellow: 48 100% 52%;
-    --rainbow-green: 145 100% 39%;
-    --rainbow-blue: 204 100% 50%;
-    --rainbow-indigo: 241 72% 62%;
-    --rainbow-violet: 280 89% 65%;
-    --rainbow-gradient: linear-gradient(90deg,#ff3838 0%,#ff8a00 16.6%,#ffd60a 33.3%,#00c853 50%,#0091ff 66.6%,#5e5ce6 83.3%,#bf5af2 100%);
-
     /* Token template algazcompany.com */
     --background: 216 18% 5%;        /* #0b0d10 */
     --foreground: 45 11% 95%;        /* #f4f3ef */
@@ -71,13 +61,10 @@
     @apply bg-background text-foreground font-sans antialiased;
     overflow-x: hidden;
   }
-  ::selection { background: #ffd60a; color: #0b0d10; }
+  ::selection { background: #6bb9ff; color: #071019; }
   ::-webkit-scrollbar { width: 10px; }
   ::-webkit-scrollbar-track { background: #0b0d10; }
-  ::-webkit-scrollbar-thumb {
-    border-radius: 999px;
-    background: linear-gradient(180deg,#ff3838,#ff8a00,#ffd60a,#00c853,#0091ff,#5e5ce6,#bf5af2);
-  }
+  ::-webkit-scrollbar-thumb { border-radius: 999px; background: #2c83d6; }
 }
 
 @layer components {
@@ -108,10 +95,10 @@
     font-size: 10px;
     letter-spacing: 0.24em;
     text-transform: uppercase;
-    color: var(--rb, #6bb9ff);
+    color: #6bb9ff;
     margin: 0 0 18px;
   }
-  .accent-rule { width: 90px; height: 3px; border-radius: 999px; background: var(--rb, #6bb9ff); margin: 24px 0 26px; }
+  .accent-rule { width: 90px; height: 3px; border-radius: 999px; background: #6bb9ff; margin: 24px 0 26px; }
   .section-count {
     position: absolute; right: 22px; bottom: 20px;
     display: flex; align-items: baseline; gap: 6px; color: #6f7983;
@@ -135,7 +122,7 @@
     font-size: 8px; letter-spacing: 0.28em; line-height: 1.65; color: #adb4bb;
   }
   @media (min-width: 768px) { .edge-note { display: flex; } }
-  .edge-note i { width: 42px; height: 2px; background: var(--rb, #6bb9ff); margin-top: 10px; }
+  .edge-note i { width: 42px; height: 2px; background: #6bb9ff; margin-top: 10px; }
   .edge-note-left { left: 26px; }
   .edge-note-right { right: 26px; text-align: right; align-items: flex-end; }
 
@@ -145,9 +132,9 @@
     display: inline-flex; align-items: center; gap: 8px;
     transition: all 0.25s ease;
   }
-  .btn-algaz:hover { border-color: var(--rb, #6bb9ff); color: var(--rb, #6bb9ff); transform: translateY(-2px); }
+  .btn-algaz:hover { border-color: #6bb9ff; color: #6bb9ff; transform: translateY(-2px); }
   .btn-algaz-primary { background: #f3f3ef; color: #0a0c0f; border-color: #f3f3ef; }
-  .btn-algaz-primary:hover { background: var(--rb, #6bb9ff); border-color: var(--rb, #6bb9ff); color: #071019; }
+  .btn-algaz-primary:hover { background: #6bb9ff; border-color: #6bb9ff; color: #071019; }
 
   .fact-grid {
     display: grid; gap: 1px; background: rgb(255 255 255 / 0.13);
@@ -155,7 +142,7 @@
   }
   @media (min-width: 768px) { .fact-grid { grid-template-columns: 1.2fr 0.65fr 1.3fr; } }
   .fact-grid > div { background: #11151a; padding: 18px 20px; min-height: 110px; }
-  .fact-grid span { display: block; font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rb, #6bb9ff); margin-bottom: 9px; }
+  .fact-grid span { display: block; font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: #6bb9ff; margin-bottom: 9px; }
   .fact-grid strong { display: block; font-size: 14px; }
   .fact-grid small { display: block; color: #78828c; margin-top: 7px; font-size: 10px; }
 }
@@ -164,43 +151,9 @@
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
   .reveal.is-visible { opacity: 1; transform: translateY(0); }
   .container-mono { @apply max-w-5xl mx-auto px-6 sm:px-8; }
-  .hairline { height: 3px; border: 0; background: var(--rainbow-gradient); background-size: 200% 100%; animation: rainbow-pan 10s linear infinite; }
+  .hairline { height: 1px; border: 0; background: rgb(255 255 255 / 0.13); }
 
-  .rainbow-text {
-    background: linear-gradient(90deg,#ff3838,#ff8a00,#ffd60a,#00c853,#0091ff,#5e5ce6,#bf5af2,#ff3838);
-    background-size: 300% 100%;
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-    animation: rainbow-pan 8s linear infinite;
-  }
-  .rainbow-bg {
-    background: linear-gradient(90deg,#ff3838,#ff8a00,#ffd60a,#00c853,#0091ff,#5e5ce6,#bf5af2,#ff3838);
-    background-size: 300% 100%; animation: rainbow-pan 8s linear infinite;
-  }
-  .rainbow-bg-static { background-image: var(--rainbow-gradient); }
-  .rainbow-border {
-    border: 2px solid transparent;
-    background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box, var(--rainbow-gradient) border-box;
-  }
+  .card-hover { transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+  .card-hover:hover { transform: translateY(-3px); border-color: rgba(107,185,255,.45); box-shadow: 0 18px 50px -20px rgba(107,185,255,.5); }
 
-  /* Satu warna pelangi per elemen/panel: rb-0 s/d rb-6 */
-  .rb-0 { --rb: #ff3838; --rb-soft: rgb(255 56 56 / 0.12); }
-  .rb-1 { --rb: #ff8a00; --rb-soft: rgb(255 138 0 / 0.13); }
-  .rb-2 { --rb: #ffd60a; --rb-soft: rgb(255 214 10 / 0.14); }
-  .rb-3 { --rb: #00c853; --rb-soft: rgb(0 200 83 / 0.12); }
-  .rb-4 { --rb: #0091ff; --rb-soft: rgb(0 145 255 / 0.12); }
-  .rb-5 { --rb: #5e5ce6; --rb-soft: rgb(94 92 230 / 0.13); }
-  .rb-6 { --rb: #bf5af2; --rb-soft: rgb(191 90 242 / 0.13); }
-  .rb-text { color: var(--rb); }
-  .rb-bg-soft { background-color: var(--rb-soft); }
-  .rb-border { border-color: var(--rb); }
-  .rb-hover:hover { color: var(--rb); }
-  .rb-card { transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
-  .rb-card:hover { transform: translateY(-3px); border-color: var(--rb); box-shadow: 0 18px 50px -20px var(--rb); }
-
-  .pride-flag-wave { transform-origin: 10px 39px; animation: flag-wave 2.6s ease-in-out infinite; }
-  @keyframes flag-wave { 0%,100% { transform: rotate(0deg) skewY(0deg); } 50% { transform: rotate(-1.6deg) skewY(2.2deg); } }
-  @keyframes rainbow-pan { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
-  @media (prefers-reduced-motion: reduce) {
-    .rainbow-text, .rainbow-bg, .hairline, .pride-flag-wave { animation: none; }
-  }
 }

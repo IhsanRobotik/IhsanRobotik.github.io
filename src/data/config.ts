@@ -108,7 +108,7 @@ export const projects: Project[] = [
     description: "A browser interface for pcb2gcode that converts Gerber and Excellon files into milling and drilling toolpaths, with a 3D preview of material removal.",
     tags: ["Python", "JavaScript", "CNC", "G-code"],
     image: {
-      src: "/projects/pcb-milling.webp",
+      src: "/projects/pcb-milling.png",
       alt: "Back-side PCB isolation milling paths plotted from the repository’s example G-code",
     },
     links: [
